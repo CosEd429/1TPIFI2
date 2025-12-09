@@ -13,5 +13,6 @@ session_start();
 </head>
 <body>
     <h1>Welcome to our page</h1>
+    
 </body>
 </html>
