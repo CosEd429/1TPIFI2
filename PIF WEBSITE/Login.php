@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+// Check if user is already logged in
+if(isset($_SESSION['pk_username'])) {
+    header("Location: WelcomePage.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,62 +16,66 @@ session_start();
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
     <link href='https://fonts.googleapis.com/css?family=Baskervville SC' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+    <title>Login - Portable Indoor Feedback</title>
 </head>
-<body>
-<?php 
-// Check if user is already logged in
-if(isset($_SESSION['pk_username'])) {  // CHANGED: 'username' to 'pk_username'
-    header("Location: WelcomePage.php");
-    exit();
-}
-
-include("header.php"); 
-?>
-
-<!-- SIMPLE NAVIGATION -->
-<div class="simple-nav">
-    <a href="WelcomePage.php"><i class="fas fa-arrow-left"></i> Back to Home</a>
-</div>
-
-<div class="content">
-    <?php if(isset($_SESSION["authenticate"])): ?>
-        <div class="error-message">
-            <?php 
-            echo $_SESSION["authenticate"];
-            unset($_SESSION["authenticate"]);
-            ?>
-        </div>
-    <?php endif; ?>
+<body class="auth-page"> <!-- ADD THIS -->
     
-    <?php if(isset($_SESSION["success"])): ?>
-        <div class="success-message">
-            <?php 
-            echo $_SESSION["success"];
-            unset($_SESSION["success"]);
-            ?>
+    <div class="auth-container">
+        <!-- Back to Home Link -->
+        <a href="WelcomePage.php" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <!-- Logo/Title -->
+        <div class="auth-header">
+            <h1>Login</h1>
+            <p>Welcome back to Portable Indoor Feedback</p>
         </div>
-    <?php endif; ?>
+        
+        <!-- Error/Success Messages -->
+        <?php if(isset($_SESSION["authenticate"])): ?>
+            <div class="alert alert-error">
+                <?php 
+                echo $_SESSION["authenticate"];
+                unset($_SESSION["authenticate"]);
+                ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if(isset($_SESSION["success"])): ?>
+            <div class="alert alert-success">
+                <?php 
+                echo $_SESSION["success"];
+                unset($_SESSION["success"]);
+                ?>
+            </div>
+        <?php endif; ?>
+        
+        <!-- Login Form -->
+        <form method="POST" action="AuthenticationPage.php" class="auth-form">
+            <div class="form-group">
+                <label for="username">Username </label>
+                <input type="text" id="username" name="username" required 
+                       placeholder="Enter your username">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password </label>
+                <input type="password" id="password" name="password" required 
+                       placeholder="Enter your password">
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" name="Login" class="btn-submit">
+                    Login
+                </button>
+            </div>
+            
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="Register.php">Register here</a></p>
+            </div>
+        </form>
+    </div>
     
-    <form method="POST" action="AuthenticationPage.php">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        
-        <div class="form-group">
-            <input type="submit" name="Login" value="Login">
-        </div>
-        
-        <p>Don't have an account? <a href="Register.php">Register here</a></p>
-    </form>
-</div>
-
-<?php include("footer.php"); ?>
 </body>
 </html>
