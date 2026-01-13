@@ -830,3 +830,84 @@
     }
 }
 
+/* Measurements Page Styles */
+.measurement-form {
+    max-width: 600px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.measurement-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.measurement-table th {
+    background: #f8f9fa;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.measurement-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.measurement-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.measurement-table tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.small-note {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Form improvements */
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .measurement-table th,
+    .measurement-table td {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    
+    .measurement-table th:nth-child(4),
+    .measurement-table th:nth-child(5),
+    .measurement-table th:nth-child(6),
+    .measurement-table td:nth-child(4),
+    .measurement-table td:nth-child(5),
+    .measurement-table td:nth-child(6) {
+        display: none; /* Hide less important columns on mobile */
+    }
+}
+
