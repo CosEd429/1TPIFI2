@@ -2,6 +2,8 @@ $(start);
 
 
 function start() {
+    let Colors =  ["red" ,"blue" , "yellow" , "none"]
+    
     let outDiv = $("<div>");
     outDiv.attr("class", "out");
     let redDiv = $("<div>");
@@ -85,7 +87,7 @@ function start() {
         let colorlessRows = $("<div>");
         colorlessRows.attr("class", "box none")
         colorlessRows.on("click" , function(){
-          let Colors =  ["red" ,"blue" , "yellow" , "none"]
+          
 
         })
         $("body").append(colorlessRows);
