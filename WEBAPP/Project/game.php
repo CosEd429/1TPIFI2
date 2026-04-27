@@ -44,7 +44,7 @@ if (!$is_player1 && !$is_player2 && $game['player2_id'] !== null) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="lobby.php" class="back-btn">← Back to Lobby</a>
+    <a href="lobby.php" class="back-btn">Back to Lobby</a>
     
     <div class="game-container">
         <div class="game-info">

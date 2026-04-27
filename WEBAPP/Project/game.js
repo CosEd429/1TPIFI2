@@ -3,13 +3,12 @@ $(document).ready(function() {
     console.log("Game ID:", gameId);
     console.log("Player ID:", currentPlayerId);
     
-    // Game state
     let mySymbol = null;
     let gameActive = true;
     let boardState = ["", "", "", "", "", "", "", "", ""];
     let pollingInterval = null;
     
-    // Create the board
+
     function createBoard() {
         let table = $("</table>");
         
@@ -43,7 +42,7 @@ $(document).ready(function() {
         $("#game-board").append(table);
     }
     
-    // Send move to server
+
     function makeMove(position) {
         $.ajax({
             url: 'make_move.php',
@@ -73,11 +72,6 @@ $(document).ready(function() {
                     alert(data.error || "Invalid move!");
                 }
             },
-            error: function(xhr, status, error) {
-                console.log("Move error - Status:", status);
-                console.log("Move error - Response:", xhr.responseText);
-                alert("Error making move. Check console.");
-            }
         });
     }
     
@@ -123,7 +117,7 @@ $(document).ready(function() {
                     if (pollingInterval) clearInterval(pollingInterval);
                     
                     if (game.winner === currentPlayerId) {
-                        $("#turn-indicator").html(" You won! 🎉");
+                        $("#turn-indicator").html(" You won!");
                     } else if (game.winner === null) {
                         $("#turn-indicator").html(" Game ended in a draw!");
                     } else {
@@ -144,7 +138,6 @@ $(document).ready(function() {
             error: function(xhr, status, error) {
                 console.log("Error checking game status!");
                 console.log("Status:", status);
-                console.log("Response text:", xhr.responseText);
                 console.log("Error object:", error);
                 $("#turn-indicator").html(" Error connecting to server. Check console.");
             }
