@@ -19,18 +19,18 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
     <div class="user-info">
-        👤 Welcome, <?php echo $_SESSION['username']; ?>!
+         Welcome, <?php echo $_SESSION['username']; ?>!
     </div>
     
-    <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+    <button class="logout-btn" onclick="logout()"> Logout</button>
     
     <div class="lobby-container">
-        <h1>🎮 Tic Tac Toe - Game Lobby</h1>
+        <h1> Tic Tac Toe - Game Lobby</h1>
         
-        <button class="create-btn" onclick="createGame()">➕ Create New Game</button>
+        <button class="create-btn" onclick="createGame()"> Create New Game</button>
         
         <div class="game-list">
-            <h3>📋 Available Games:</h3>
+            <h3> Available Games:</h3>
             <div id="game-list">Loading...</div>
         </div>
     </div>
@@ -40,8 +40,7 @@ if (!isset($_SESSION['user_id'])) {
             $.ajax({
                 url: 'create_game.php',
                 method: 'POST',
-                success: function(response) {
-                    const data = JSON.parse(response);
+                success: function(data) {
                     if (data.game_id) {
                         window.location.href = 'game.php?id=' + data.game_id;
                     } else {
@@ -56,8 +55,7 @@ if (!isset($_SESSION['user_id'])) {
                 url: 'join_game.php',
                 method: 'POST',
                 data: { game_id: gameId },
-                success: function(response) {
-                    const data = JSON.parse(response);
+                success: function(data) {
                     if (data.success) {
                         window.location.href = 'game.php?id=' + gameId;
                     } else {
@@ -75,8 +73,7 @@ if (!isset($_SESSION['user_id'])) {
             $.ajax({
                 url: 'get_waiting_games.php',
                 method: 'GET',
-                success: function(response) {
-                    const games = JSON.parse(response);
+                success: function(games) {
                     const gameList = $('#game-list');
                     
                     if (games.length === 0) {
