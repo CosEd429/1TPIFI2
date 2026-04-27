@@ -55,7 +55,6 @@ if (!$is_player1 && !$is_player2 && $game['player2_id'] !== null) {
     </div>
     
     <script>
-        // Pass PHP variables to JavaScript
         const gameId = <?php echo $game_id; ?>;
         const currentPlayerId = <?php echo $_SESSION['user_id']; ?>;
     </script>
