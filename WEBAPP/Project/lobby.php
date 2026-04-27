@@ -77,13 +77,13 @@ if (!isset($_SESSION['user_id'])) {
                     const gameList = $('#game-list');
                     
                     if (games.length === 0) {
-                        gameList.html('<div class="no-games">🎲 No games available. Create one!</div>');
+                        gameList.html('<div class="no-games">No games available. Create one!</div>');
                     } else {
                         let html = '';
                         games.forEach(function(game) {
                             html += `
                                 <div class="game-item">
-                                    <span>🎯 Game #${game.id} - Created by: ${game.creator}</span>
+                                    <span> Game #${game.id} - Created by: ${game.creator}</span>
                                     <button class="join-btn" onclick="joinGame(${game.id})">Join Game</button>
                                 </div>
                             `;

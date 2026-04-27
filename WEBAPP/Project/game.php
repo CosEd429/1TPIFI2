@@ -48,7 +48,7 @@ if (!$is_player1 && !$is_player2 && $game['player2_id'] !== null) {
     
     <div class="game-container">
         <div class="game-info">
-            🎮 Game #<?php echo $game_id; ?>
+             Game #<?php echo $game_id; ?>
         </div>
         <div id="turn-indicator">Loading...</div>
         <div id="game-board"></div>

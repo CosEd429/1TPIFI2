@@ -63,9 +63,9 @@ $(document).ready(function() {
                     if (data.game_over) {
                         gameActive = false;
                         if (data.winner === currentPlayerId) {
-                            alert("🎉 Congratulations! You won! 🎉");
+                            alert(" Congratulations! You won!");
                         } else if (data.draw) {
-                            alert("🤝 Game ended in a draw!");
+                            alert(" Game ended in a draw!");
                         }
                         if (pollingInterval) clearInterval(pollingInterval);
                     }
@@ -100,7 +100,7 @@ $(document).ready(function() {
                         mySymbol = "O";
                     } else {
                         console.log("Waiting for second player to join...");
-                        $("#turn-indicator").html("⏳ Waiting for opponent to join...");
+                        $("#turn-indicator").html(" Waiting for opponent to join...");
                         return;
                     }
                 }
@@ -123,21 +123,21 @@ $(document).ready(function() {
                     if (pollingInterval) clearInterval(pollingInterval);
                     
                     if (game.winner === currentPlayerId) {
-                        $("#turn-indicator").html("🎉 You won! 🎉");
+                        $("#turn-indicator").html(" You won! 🎉");
                     } else if (game.winner === null) {
-                        $("#turn-indicator").html("🤝 Game ended in a draw!");
+                        $("#turn-indicator").html(" Game ended in a draw!");
                     } else {
-                        $("#turn-indicator").html("😔 You lost! Better luck next time!");
+                        $("#turn-indicator").html(" You lost! Better luck next time!");
                     }
                     return;
                 }
                 
                 const isMyTurn = (game.current_turn === currentPlayerId);
                 if (isMyTurn && gameActive) {
-                    $("#turn-indicator").html(`🎯 Your turn! (${mySymbol})`);
+                    $("#turn-indicator").html(` Your turn! (${mySymbol})`);
                     $(".cell").css("cursor", "pointer");
                 } else if (gameActive) {
-                    $("#turn-indicator").html("⏳ Waiting for opponent...");
+                    $("#turn-indicator").html(" Waiting for opponent...");
                     $(".cell").css("cursor", "not-allowed");
                 }
             },
