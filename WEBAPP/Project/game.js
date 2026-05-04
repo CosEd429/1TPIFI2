@@ -5,7 +5,6 @@ $(document).ready(function() {
     
     let mySymbol = null;
     let gameActive = true;
-    let boardState = ["", "", "", "", "", "", "", "", ""];
     let pollingInterval = null;
     
 
