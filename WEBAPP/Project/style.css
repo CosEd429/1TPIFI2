@@ -1,6 +1,4 @@
-/* ============================================
-   GLOBAL STYLES
-============================================ */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,9 +6,7 @@ body {
     background-color: #f5f5f5;
 }
 
-/* ============================================
-   GAME BOARD STYLES
-============================================ */
+
 table {
     border-collapse: collapse;
     margin: 20px auto;
@@ -31,9 +27,7 @@ table {
     background-color: #f0f0f0;
 }
 
-/* ============================================
-   AUTHENTICATION PAGES (Login & Register)
-============================================ */
+
 .auth-container {
     width: 350px;
     margin: 100px auto;
@@ -99,9 +93,7 @@ table {
     text-decoration: underline;
 }
 
-/* ============================================
-   LOBBY STYLES
-============================================ */
+
 .lobby-container {
     width: 800px;
     margin: 50px auto;
@@ -204,9 +196,7 @@ table {
     text-align: center;
 }
 
-/* ============================================
-   GAME PAGE STYLES
-============================================ */
+
 .game-container {
     text-align: center;
     margin-top: 50px;
@@ -243,9 +233,7 @@ table {
     background: #0077a3;
 }
 
-/* ============================================
-   UTILITY CLASSES
-============================================ */
+
 .text-center {
     text-align: center;
 }

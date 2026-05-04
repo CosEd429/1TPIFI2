@@ -44,18 +44,17 @@ if (!$is_player1 && !$is_player2 && $game['player2_id'] !== null) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="lobby.php" class="back-btn">← Back to Lobby</a>
+    <a href="lobby.php" class="back-btn">Back to Lobby</a>
     
     <div class="game-container">
         <div class="game-info">
-            🎮 Game #<?php echo $game_id; ?>
+             Game #<?php echo $game_id; ?>
         </div>
         <div id="turn-indicator">Loading...</div>
         <div id="game-board"></div>
     </div>
     
     <script>
-        // Pass PHP variables to JavaScript
         const gameId = <?php echo $game_id; ?>;
         const currentPlayerId = <?php echo $_SESSION['user_id']; ?>;
     </script>
