@@ -4,12 +4,14 @@ $(document).ready(function() {
     console.log("Player ID:", currentPlayerId);
     
     let mySymbol = null;
+    let boardState = [null, null, null, null, null, null, null, null, null];
     let gameActive = true;
     let pollingInterval = null;
     
 
     function createBoard() {
-        let table = $("</table>");
+        let $board = $("#game-board").empty();
+        let table = $("<table>");
         
         for (let i = 0; i < 3; i++) {
             let row = $("<tr>");
@@ -25,7 +27,7 @@ $(document).ready(function() {
                         return;
                     }
                     
-                    if (boardState[cellIndex] !== "") {
+                    if (boardState[cellIndex] !== null) {
                         alert("Cell already taken!");
                         return;
                     }
@@ -100,10 +102,10 @@ $(document).ready(function() {
                 
                 if (game.board_state !== boardState.join('')) {
                     console.log("Updating board from server");
-                    boardState = game.board_state.split('');
+                     boardState = game.board_state.split('').map(char => char === '-' ? null : char);
                     $('.cell').each(function(index) {
                         const symbol = boardState[index];
-                        if (symbol !== '-') {
+                        if (symbol !== null) {
                             $(this).html(symbol);
                         } else {
                             $(this).html('');
